@@ -87,23 +87,17 @@
       margin-bottom: 12px;
     }
 
-    .plugin-details ul {
+    ul {
       list-style: none;
-      padding: 0;
+      padding: 0 0 0.5em 0;
     }
 
-    .plugin-details ul li {
-      padding: 4px 0;
-      padding-left: 16px;
+    ul li {
+      padding: 0;
       position: relative;
       color: #333;
-    }
-
-    .plugin-details ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #aaa;
+      margin-left: 1em;
+      list-style: disc;
     }
 
     .download-section {
@@ -167,18 +161,22 @@
       margin-top: 8px;
     }
 
-    .credits-section {
+    .full-width-section {
       max-width: 960px;
       margin: 0 auto;
       padding: 48px 24px 72px;
       border-top: 1px solid #d8d8d8;
     }
 
-    .credits-section p {
+    .full-width-section p {
       color: #444;
       font-size: 0.875rem;
       margin-bottom: 8px;
       max-width: 600px;
+    }
+
+    .full-width-section a {
+      color: #202020;
     }
 
     @media (max-width: 640px) {
@@ -238,7 +236,15 @@
   <div class="plugin-section">
     <div class="plugin-header">
       <h1>SnareRush</h1>
-      <p>A synthesized snare drum instrument inspired by classic circuitry - no samples, every hit generated in real time from oscillators, envelopes, filters, and noise.</p>
+      <p>
+        SnareRush is a synthesized snare drum instrument inspired by classic drum circuitry, but radically expanded with the potential of ITB synthesis. No samples, every hit is generated in real time from oscillators, envelopes, filters, and noise.
+      </p>
+      <p>
+        Extensive control over dynamics and tone, this is an over-powered swiss army knife for snare drum and percussive sound design.
+      </p>
+      <p>
+        SnareRush is in beta and is likely to change a lot!
+      </p>
     </div>
 
     <div class="plugin-body">
@@ -254,6 +260,7 @@
           <li>Multi-mode noise source - Noise9, Velvet, Crakl, and Flip - for the snappy wire character</li>
           <li>Per-section envelope shaping with curve controls</li>
           <li>Stereo spread via an independent noise tap</li>
+          <li>Subtle snappy swell on repeated hits, like real hardware capacitor accumulation</li>
           <li>Envelope ceiling, choke, and output clipper</li>
           <li>Keyboard tracking and deterministic noise mode for repeatable renders</li>
           <li>Microtonal options</li>
@@ -299,12 +306,31 @@ xattr -rd com.apple.quarantine   ~/Library/Audio/Plug-Ins/Components/SnareRush.c
     </div>
   </div>
 
-  <div class="credits-section">
+  <div class="full-width-section">
+    <h2>Roadmap</h2>
+    <p>Todo and possible features</p>
+    <ul>
+      <li>CPU optimization</li>
+      <li>UI streamlining</li>
+      <li>Fine tune parameter ranges and defaults</li>
+      <li>AFX mode/per-note programs</li>
+      <li>Presets and patch storage</li>
+    </ul>
+    If there is something specific you'd like to see, submit a feature request at
+    <a href="https://github.com/ryandorward/SnareRush-releases/issues" target="_blank">https://github.com/ryandorward/SnareRush-releases/issues</a> or get in touch
+  </div>
+
+  <div class="credits-section full-width-section">
     <h2>Credits</h2>
     <p>SnareRush is free to use.</p>
-    <p>Built with <a href="https://juce.com" style="color:#202020;">JUCE</a>, the open-source C++ framework for audio software.</p>
-    <p>Circuit research drawn from the <em>Sound on Sound</em> Synth Secrets series and the work of <a href="https://electricdruid.net" style="color:#202020;">Electric Druid</a> on vintage drum synthesis.</p>
+    <p>Built with <a href="https://juce.com">JUCE</a>, the open-source C++ framework for audio software.</p>
+    <p>Circuit research drawn from the <em>Sound on Sound</em> Synth Secrets series and the work of <a href="https://electricdruid.net">Electric Druid</a> on vintage drum synthesis.</p>
+    <p>Inspiration taken widely from the sound design, DSP, electronic community.
+      Thank you to all the forums, discussions, and sharers of knowledge.
+    </p>
   </div>
+
+
 
 </body>
 </html>
