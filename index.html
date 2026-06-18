@@ -282,11 +282,14 @@
           <p>1. Unzip the archive, then copy the plugins into your user plugin folders:</p>
           <pre>cp -R "SnareRush.vst3" ~/Library/Audio/Plug-Ins/VST3/
 cp -R "SnareRush.component" ~/Library/Audio/Plug-Ins/Components/</pre>
-          <p>2. Remove the macOS quarantine flag (required once after download):</p>
-          <pre>xattr -rd com.apple.quarantine   ~/Library/Audio/Plug-Ins/VST3/SnareRush.vst3
-xattr -rd com.apple.quarantine   ~/Library/Audio/Plug-Ins/Components/SnareRush.component</pre>
-          <p class="install-note">The plugins are ad-hoc signed, not notarised with an Apple Developer ID. The <code>xattr</code> step unblocks them without needing Gatekeeper approval.</p>
-          <p>3. Rescan plugins in your DAW.</p>
+          <p>2. Remove the macOS quarantine flag:</p>
+          <pre>xattr -rd com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/SnareRush.vst3
+xattr -rd com.apple.quarantine ~/Library/Audio/Plug-Ins/Components/SnareRush.component</pre>
+          <p>3. Re-sign locally so Gatekeeper accepts the plugin:</p>
+          <pre>codesign --force --deep --sign - ~/Library/Audio/Plug-Ins/VST3/SnareRush.vst3
+codesign --force --deep --sign - ~/Library/Audio/Plug-Ins/Components/SnareRush.component</pre>
+          <p class="install-note">SnareRush is ad-hoc signed rather than notarised with an Apple Developer ID. On macOS 14 and later, Gatekeeper blocks downloaded ad-hoc binaries even after quarantine removal. The <code>codesign</code> step re-applies the signature locally, which macOS treats as trusted. This is a one-time step.</p>
+          <p>4. Rescan plugins in your DAW.</p>
           <p>Formats: VST3, Audio Unit (AU)</p>
         </div>
       </div>
